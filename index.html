@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SAORIさん専用ダイエットサポート</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <h1>SAORIさん専用ダイエットサポート</h1>
+    <p class="tag">Namie-inspired | Strong, Cool, Beautiful</p>
+  </header>
+
+  <main class="container">
+    <!-- ① 名言/歌詞ワンフレーズ（短文） -->
+    <section id="quotes" class="card">
+      <h2>安室奈美恵格言</h2>
+      <p id="quoteText" class="quote"></p>
+      <button id="btnNewQuote" class="btn ghost">別のフレーズを見る</button>
+    </section>
+
+    <!-- ② チェックリスト -->
+    <section id="checklist" class="card">
+      <h2>今日のチェックリスト</h2>
+      <ul class="checklist">
+        <li><label><input type="checkbox" id="chkExercise"> 今日の運動（5分以上）</label></li>
+        <li><label><input type="checkbox" id="chkWater"> 水分トータル2L（起きたてコップ1杯）</label></li>
+        <li><label><input type="checkbox" id="chkChew"> よく噛んで食べる</label></li>
+        <li><label><input type="checkbox" id="chkSun"> 起床後に朝日を浴びる</label></li>
+      </ul>
+      <p id="checklistStatus" class="status"></p>
+    </section>
+
+    <!-- ③ 育尻先生から学ぼう -->
+    <section id="learn" class="card">
+      <h2>育尻先生から学ぼう</h2>
+      <div class="links">
+        <a class="btn link" target="_blank" rel="noopener" href="https://www.instagram.com/kensfitness3mp?igsh=bHpsNTRxa3p2c2Js">kensfitness3mp へ</a>
+        <a class="btn link" target="_blank" rel="noopener" href="https://www.instagram.com/taichi_flexible.body?igsh=NnM3M29iZHlsMmRq">taichi_flexible.body へ</a>
+      </div>
+    </section>
+
+    <!-- ④ 今日の夕ご飯（日替わり提案） -->
+    <section id="dinner" class="card">
+      <h2>今日の夕ご飯（400〜450kcal）</h2>
+      <div id="dinnerContent" class="meal"></div>
+      <button id="btnNextDinner" class="btn">別案を見る</button>
+    </section>
+
+    <!-- ⑤ セブンイレブンいい気分（切替） -->
+    <section id="seven" class="card">
+      <h2>セブンイレブンで昼食（400〜450kcal）</h2>
+      <div id="sevenMenu" class="meal"></div>
+      <button id="btnNextSeven" class="btn">メニューを切替</button>
+      <p class="note">野菜スティックとサラダは必ず含まれます</p>
+    </section>
+
+    <!-- ⑥ 朝の体重入力 -->
+    <section id="weight" class="card">
+      <h2>朝の体重入力</h2>
+      <div class="weight-form">
+        <input type="number" id="weightInput" step="0.1" min="0" placeholder="例: 52.4" />
+        <span>kg</span>
+        <button id="btnSaveWeight" class="btn">保存</button>
+      </div>
+      <p id="weightStatus" class="status"></p>
+    </section>
+
+    <!-- ⑦ カレンダー（体重・花丸連動） -->
+    <section id="calendar" class="card">
+      <h2>カレンダー</h2>
+      <div class="calendar-nav">
+        <button id="prevMonth" class="btn ghost">◀</button>
+        <div id="calTitle" class="cal-title"></div>
+        <button id="nextMonth" class="btn ghost">▶</button>
+      </div>
+      <div id="calGrid" class="cal-grid"></div>
+      <p class="legend">
+        <span>💮 チェックリスト全達成</span>
+        <span>・体重は数値で表示</span>
+      </p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <small>© 2025 SAORI Support</small>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

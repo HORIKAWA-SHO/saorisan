@@ -1,0 +1,119 @@
+/* Base */
+:root{
+  --bg:#0c0c10;
+  --card:#16161d;
+  --text:#f6f7fb;
+  --muted:#b7bbca;
+  --accent:#f06292; /* pink */
+  --accent2:#6c63ff; /* purple */
+  --ok:#8bc34a;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{
+  font-family:'Zen Kaku Gothic New', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  background:radial-gradient(1200px 600px at 80% -10%, rgba(108,99,255,.25), transparent),
+             radial-gradient(1000px 500px at -10% 100%, rgba(240,98,146,.25), transparent),
+             var(--bg);
+  color:var(--text);
+  line-height:1.65;
+}
+
+/* Layout */
+.site-header, .site-footer{ text-align:center; padding:24px 16px; }
+.site-header h1{ margin:0 0 6px; font-size:28px; letter-spacing:0.02em }
+.tag{ margin:0; color:var(--muted); font-size:14px }
+.site-footer small{ color:var(--muted) }
+
+.container{
+  max-width:980px; margin:0 auto; padding:16px; display:grid; gap:16px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.card{
+  background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+  border:1px solid rgba(255,255,255,0.08);
+  border-radius:16px; padding:16px; backdrop-filter: blur(6px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.25);
+}
+.card h2{ margin-top:0; font-size:18px; letter-spacing:0.01em }
+
+/* Buttons */
+.btn{ cursor:pointer; border:none; padding:10px 14px; border-radius:10px; color:white; background:linear-gradient(135deg, var(--accent), var(--accent2)); }
+.btn:hover{ opacity:.95 }
+.btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,.2); color:var(--text)}
+.btn.link{ background:transparent; border:1px solid rgba(255,255,255,.2); }
+.links{ display:flex; gap:8px; flex-wrap:wrap }
+
+/* Quotes */
+.quote{ font-size:16px; color:#fff; padding:8px 0; min-height:48px }
+
+/* Checklist */
+.checklist{ list-style:none; padding:0; margin:0; display:grid; gap:8px }
+.checklist input{ transform: scale(1.15); margin-right:8px }
+.status{ color:var(--muted); margin-top:8px; min-height:20px }
+
+/* Meal */
+.meal{ display:grid; gap:8px }
+.meal .title{ font-weight:700 }
+.meal .meta{ color:var(--muted); font-size:14px }
+.meal .desc{ font-size:14px }
+.note{ color:var(--muted); font-size:12px }
+
+/* Weight */
+.weight-form{ display:flex; align-items:center; gap:8px }
+.weight-form input{ width:120px; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:transparent; color:var(--text) }
+
+/* Calendar */
+.calendar-nav{ display:flex; align-items:center; justify-content:space-between; gap:8px }
+.cal-title{ font-weight:700 }
+.cal-grid{ display:grid; grid-template-columns: repeat(7, 1fr); gap:6px; margin-top:8px }
+.day{ background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:8px; min-height:84px; display:flex; flex-direction:column; gap:6px }
+.day .d{ font-size:12px; color:var(--muted) }
+.badge{ font-size:16px }
+.weight{ font-size:13px; color:#fff }
+.day.muted{ opacity:.35 }
+.legend{ color:var(--muted); font-size:12px; margin-top:8px }
+
+@media (min-width: 960px){
+  #quotes{ grid-column: 1 / -1 }
+}
+
+/* --- Decorations --- */
+.card{ position:relative; transition: transform .15s ease, box-shadow .2s ease }
+.card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.32) }
+.card h2{ padding-left:28px; position:relative; display:inline-block; background:linear-gradient(90deg, rgba(255,255,255,.18), transparent); background-size:0% 2px; background-repeat:no-repeat; background-position: left bottom }
+.card:hover h2{ background-size:100% 2px }
+
+/* Section icons */
+#quotes h2::before{ content:'💬'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
+#checklist h2::before{ content:'✅'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
+#learn h2::before{ content:'🏋️'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
+#dinner h2::before{ content:'🍽️'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
+#seven h2::before{ content:'🛒'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
+#weight h2::before{ content:'⚖️'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
+#calendar h2::before{ content:'📅'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
+
+/* Buttons polish */
+.btn{ box-shadow: 0 6px 14px rgba(240,98,146,.22); transition: filter .2s ease, transform .05s ease }
+.btn:active{ transform: translateY(1px) }
+.btn.ghost,.btn.link{ box-shadow:none }
+
+/* Checklist visuals */
+input[type="checkbox"]{ accent-color: var(--accent) }
+.checklist li{ padding:10px 12px; border:1px solid rgba(255,255,255,.06); border-radius:10px; background:rgba(255,255,255,.03) }
+
+/* Quote emphasis */
+.quote{ border-left:3px solid var(--accent); padding-left:10px; font-style:italic }
+
+/* Meal block */
+.meal{ border-left:3px solid var(--accent2); padding-left:10px }
+.meal .title{ letter-spacing:.01em }
+
+/* Calendar enhancements */
+.day{ transition: background .2s ease, border-color .2s ease }
+.day.today{ border-color: rgba(108,99,255,.6); box-shadow: 0 0 0 1px rgba(108,99,255,.35) inset }
+.cal-grid > .day:nth-child(7n+1) .d{ color:#ff8a80 }
+.cal-grid > .day:nth-child(7n) .d{ color:#80d8ff }
+.badge{ animation: badgePop .8s ease both }
+@keyframes badgePop{ 0%{ transform:scale(.6); opacity:.2 } 60%{ transform:scale(1.15); opacity:1 } 100%{ transform:scale(1) } }
