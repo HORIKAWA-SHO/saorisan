@@ -18,10 +18,12 @@ body{
   color:var(--text);
   line-height:1.65;
 }
+/* Prevent mobile auto font scaling */
+html{ -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 /* Layout */
 .site-header, .site-footer{ text-align:center; padding:28px 16px; }
-.site-header h1{ margin:0 0 6px; font-size:30px; letter-spacing:0.02em }
+.site-header h1{ margin:0 0 6px; font-size:30px; letter-spacing:0.02em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
 .tag{ margin:0; color:var(--muted); font-size:14px }
 .site-footer small{ color:var(--muted) }
 
@@ -36,7 +38,7 @@ body{
   border-radius:18px; padding:18px; backdrop-filter: blur(6px);
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
-.card h2{ margin-top:0; font-size:18px; letter-spacing:0.01em }
+.card h2{ margin-top:0; font-size:18px; letter-spacing:0.01em; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
 
 /* Buttons */
 .btn{ cursor:pointer; border:none; padding:11px 16px; border-radius:12px; color:white; background:linear-gradient(135deg, var(--accent), var(--accent2)); }
@@ -62,9 +64,9 @@ body{
 
 /* Weight */
 .weight-form{ display:flex; align-items:center; gap:8px }
-.weight-form input{ width:120px; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:transparent; color:var(--text) }
+.weight-form input{ width:120px; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:transparent; color:var(--text); font-size:16px }
 .profile{ display:flex; gap:8px; margin-top:10px; flex-wrap:wrap }
-.profile input{ width:140px; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:transparent; color:var(--text) }
+.profile input{ width:140px; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:transparent; color:var(--text); font-size:16px }
 .sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
 
 /* Calendar */
@@ -80,6 +82,23 @@ body{
 
 @media (min-width: 960px){
   #quotes{ grid-column: 1 / -1 }
+}
+
+/* Small screen tuning */
+@media (max-width: 420px){
+  .container{ gap:12px; padding:14px }
+  .card{ padding:14px; border-radius:14px }
+  .site-header{ padding:22px 12px }
+  .site-header h1{ font-size:22px }
+  .card h2{ font-size:16px }
+  .btn{ padding:10px 14px }
+  .kcal-badge{ font-size:12px; padding:5px 9px }
+  .meal-title{ font-size:15px }
+  .pfc{ gap:5px }
+  .chip{ font-size:11px; padding:3px 7px }
+  .calendar-nav .btn{ padding:8px 10px }
+  .day{ min-height:84px }
+  .quote{ font-size:15px }
 }
 
 /* --- Decorations --- */
@@ -113,14 +132,14 @@ input[type="checkbox"]{ accent-color: var(--accent) }
 .meal{ border-left:3px solid rgba(214, 183, 158, .8); padding-left:10px }
 .meal .title{ letter-spacing:.01em }
 .ingredient-search{ display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 }
-.ingredient-search input{ flex:1 1 260px; padding:8px 10px; border-radius:10px; border:1px solid rgba(0,0,0,.18); background:transparent; color:var(--text) }
+.ingredient-search input{ flex:1 1 260px; padding:8px 10px; border-radius:10px; border:1px solid rgba(0,0,0,.18); background:transparent; color:var(--text); font-size:16px }
 .ingredient-results{ margin:6px 0; font-size:14px; color:var(--muted) }
 
 /* Dinner readability */
 .meal-box{ border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:12px; background:rgba(255,255,255,.03); }
 [data-theme="light"] .meal-box{ border-color: rgba(0,0,0,.08); background: rgba(0,0,0,.02) }
 .meal-header{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px }
-.meal-title{ font-weight:700; font-size:16px; line-height:1.4 }
+.meal-title{ font-weight:700; font-size:16px; line-height:1.4; white-space:nowrap; overflow:hidden; text-overflow:ellipsis }
 .kcal-badge{ padding:6px 10px; border-radius:999px; background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; font-weight:700; font-size:13px; white-space:nowrap }
 .pfc{ display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 8px }
 .chip{ display:inline-block; padding:4px 8px; border-radius:999px; border:1px solid rgba(0,0,0,.15); font-size:12px; color:var(--text); background:transparent }
