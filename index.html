@@ -4,15 +4,20 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>SAORIさん専用ダイエットサポート</title>
+  <meta name="color-scheme" content="dark light">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header class="site-header">
     <h1>SAORIさん専用ダイエットサポート</h1>
     <p class="tag">Namie-inspired | Strong, Cool, Beautiful</p>
+    <div class="actions">
+      <button id="themeToggle" class="btn ghost" aria-pressed="false" aria-label="テーマ切替">🌗 テーマ切替</button>
+    </div>
   </header>
 
   <main class="container">
@@ -46,8 +51,24 @@
 
     <!-- ④ 今日の夕ご飯（日替わり提案） -->
     <section id="dinner" class="card">
-      <h2>今日の夕ご飯（400〜450kcal）</h2>
+      <h2>今日の夕ご飯（〜400kcal）</h2>
+      <div class="tags" role="tablist" aria-label="夕食カテゴリ">
+        <button class="tag-btn active" data-tag="all" role="tab" aria-selected="true">すべて</button>
+        <button class="tag-btn" data-tag="辛口" role="tab" aria-selected="false">辛口</button>
+        <button class="tag-btn" data-tag="さっぱり" role="tab" aria-selected="false">さっぱり</button>
+        <button class="tag-btn" data-tag="温かい" role="tab" aria-selected="false">温かい</button>
+        <button class="tag-btn" data-tag="冷たい" role="tab" aria-selected="false">冷たい</button>
+      </div>
+      <div class="ingredient-search" aria-label="食材検索">
+        <input type="text" id="ingredientInput" placeholder="例: ささみ / ブロッコリー / 鮭 / 豆腐" />
+        <button id="btnSearchIngredient" class="btn link">食材で探す</button>
+      </div>
+      <div id="ingredientResults" class="ingredient-results" aria-live="polite"></div>
       <div id="dinnerContent" class="meal"></div>
+      <div class="recipe-actions">
+        <button id="btnRecipeDetails" class="btn link">レシピ詳細</button>
+      </div>
+      <div id="recipeDetails" class="recipe-details" hidden></div>
       <button id="btnNextDinner" class="btn">別案を見る</button>
     </section>
 
@@ -67,7 +88,27 @@
         <span>kg</span>
         <button id="btnSaveWeight" class="btn">保存</button>
       </div>
+      <div class="profile" aria-label="プロフィール入力">
+        <label for="heightInput" class="sr-only">身長</label>
+        <input type="number" id="heightInput" step="0.1" min="0" placeholder="身長 (cm)" />
+        <label for="ageInput" class="sr-only">年齢</label>
+        <input type="number" id="ageInput" step="1" min="0" placeholder="年齢" />
+      </div>
       <p id="weightStatus" class="status"></p>
+      <div id="idealInfo" class="ideal-info status"></div>
+
+      <div class="goal" aria-label="目標体重設定">
+        <label for="goalInput" class="sr-only">目標体重</label>
+        <input type="number" id="goalInput" step="0.1" min="0" placeholder="目標体重 (kg)" />
+        <span id="goalDiff" class="status"></span>
+        <div class="progress" aria-hidden="true">
+          <div id="progressBar" class="progress-bar"></div>
+        </div>
+      </div>
+
+      <div class="chart-area">
+        <canvas id="weightChart" width="600" height="220" aria-label="体重推移グラフ"></canvas>
+      </div>
     </section>
 
     <!-- ⑦ カレンダー（体重・花丸連動） -->

@@ -11,7 +11,7 @@
 *{box-sizing:border-box}
 html,body{margin:0;padding:0}
 body{
-  font-family:'Zen Kaku Gothic New', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+  font-family:'Inter', 'Zen Kaku Gothic New', system-ui, -apple-system, Helvetica, Arial, sans-serif;
   background:radial-gradient(1200px 600px at 80% -10%, rgba(108,99,255,.25), transparent),
              radial-gradient(1000px 500px at -10% 100%, rgba(240,98,146,.25), transparent),
              var(--bg);
@@ -20,26 +20,26 @@ body{
 }
 
 /* Layout */
-.site-header, .site-footer{ text-align:center; padding:24px 16px; }
-.site-header h1{ margin:0 0 6px; font-size:28px; letter-spacing:0.02em }
+.site-header, .site-footer{ text-align:center; padding:28px 16px; }
+.site-header h1{ margin:0 0 6px; font-size:30px; letter-spacing:0.02em }
 .tag{ margin:0; color:var(--muted); font-size:14px }
 .site-footer small{ color:var(--muted) }
 
 .container{
-  max-width:980px; margin:0 auto; padding:16px; display:grid; gap:16px;
+  max-width:980px; margin:0 auto; padding:20px; display:grid; gap:18px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 .card{
   background:linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
   border:1px solid rgba(255,255,255,0.08);
-  border-radius:16px; padding:16px; backdrop-filter: blur(6px);
+  border-radius:18px; padding:18px; backdrop-filter: blur(6px);
   box-shadow: 0 8px 24px rgba(0,0,0,.25);
 }
 .card h2{ margin-top:0; font-size:18px; letter-spacing:0.01em }
 
 /* Buttons */
-.btn{ cursor:pointer; border:none; padding:10px 14px; border-radius:10px; color:white; background:linear-gradient(135deg, var(--accent), var(--accent2)); }
+.btn{ cursor:pointer; border:none; padding:11px 16px; border-radius:12px; color:white; background:linear-gradient(135deg, var(--accent), var(--accent2)); }
 .btn:hover{ opacity:.95 }
 .btn.ghost{ background:transparent; border:1px solid rgba(255,255,255,.2); color:var(--text)}
 .btn.link{ background:transparent; border:1px solid rgba(255,255,255,.2); }
@@ -63,12 +63,15 @@ body{
 /* Weight */
 .weight-form{ display:flex; align-items:center; gap:8px }
 .weight-form input{ width:120px; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:transparent; color:var(--text) }
+.profile{ display:flex; gap:8px; margin-top:10px; flex-wrap:wrap }
+.profile input{ width:140px; padding:8px 10px; border-radius:8px; border:1px solid rgba(255,255,255,.2); background:transparent; color:var(--text) }
+.sr-only{ position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0 }
 
 /* Calendar */
 .calendar-nav{ display:flex; align-items:center; justify-content:space-between; gap:8px }
 .cal-title{ font-weight:700 }
 .cal-grid{ display:grid; grid-template-columns: repeat(7, 1fr); gap:6px; margin-top:8px }
-.day{ background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.07); border-radius:10px; padding:8px; min-height:84px; display:flex; flex-direction:column; gap:6px }
+.day{ background:rgba(255,255,255,.03); border:1px solid rgba(255,255,255,.08); border-radius:12px; padding:9px; min-height:92px; display:flex; flex-direction:column; gap:6px }
 .day .d{ font-size:12px; color:var(--muted) }
 .badge{ font-size:16px }
 .weight{ font-size:13px; color:#fff }
@@ -82,17 +85,17 @@ body{
 /* --- Decorations --- */
 .card{ position:relative; transition: transform .15s ease, box-shadow .2s ease }
 .card:hover{ transform: translateY(-2px); box-shadow: 0 12px 28px rgba(0,0,0,.32) }
-.card h2{ padding-left:28px; position:relative; display:inline-block; background:linear-gradient(90deg, rgba(255,255,255,.18), transparent); background-size:0% 2px; background-repeat:no-repeat; background-position: left bottom }
+.card h2{ padding-left:10px; position:relative; display:inline-block; background:linear-gradient(90deg, rgba(255,255,255,.18), transparent); background-size:0% 2px; background-repeat:no-repeat; background-position: left bottom; border-left:4px solid rgba(214, 183, 158, .65) }
 .card:hover h2{ background-size:100% 2px }
 
-/* Section icons */
-#quotes h2::before{ content:'💬'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
-#checklist h2::before{ content:'✅'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
-#learn h2::before{ content:'🏋️'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
-#dinner h2::before{ content:'🍽️'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
-#seven h2::before{ content:'🛒'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
-#weight h2::before{ content:'⚖️'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
-#calendar h2::before{ content:'📅'; position:absolute; left:0; top:50%; transform:translateY(-50%) }
+/* Section icons removed per request */
+#quotes h2::before,
+#checklist h2::before,
+#learn h2::before,
+#dinner h2::before,
+#seven h2::before,
+#weight h2::before,
+#calendar h2::before{ content:''; display:none }
 
 /* Buttons polish */
 .btn{ box-shadow: 0 6px 14px rgba(240,98,146,.22); transition: filter .2s ease, transform .05s ease }
@@ -104,11 +107,26 @@ input[type="checkbox"]{ accent-color: var(--accent) }
 .checklist li{ padding:10px 12px; border:1px solid rgba(255,255,255,.06); border-radius:10px; background:rgba(255,255,255,.03) }
 
 /* Quote emphasis */
-.quote{ border-left:3px solid var(--accent); padding-left:10px; font-style:italic }
+.quote{ border-left:3px solid rgba(214, 183, 158, .8); padding-left:10px; font-style:italic }
 
 /* Meal block */
-.meal{ border-left:3px solid var(--accent2); padding-left:10px }
+.meal{ border-left:3px solid rgba(214, 183, 158, .8); padding-left:10px }
 .meal .title{ letter-spacing:.01em }
+.ingredient-search{ display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 }
+.ingredient-search input{ flex:1 1 260px; padding:8px 10px; border-radius:10px; border:1px solid rgba(0,0,0,.18); background:transparent; color:var(--text) }
+.ingredient-results{ margin:6px 0; font-size:14px; color:var(--muted) }
+
+/* Dinner readability */
+.meal-box{ border:1px solid rgba(0,0,0,.12); border-radius:14px; padding:12px; background:rgba(255,255,255,.03); }
+[data-theme="light"] .meal-box{ border-color: rgba(0,0,0,.08); background: rgba(0,0,0,.02) }
+.meal-header{ display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:8px }
+.meal-title{ font-weight:700; font-size:16px; line-height:1.4 }
+.kcal-badge{ padding:6px 10px; border-radius:999px; background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; font-weight:700; font-size:13px; white-space:nowrap }
+.pfc{ display:flex; flex-wrap:wrap; gap:6px; margin:6px 0 8px }
+.chip{ display:inline-block; padding:4px 8px; border-radius:999px; border:1px solid rgba(0,0,0,.15); font-size:12px; color:var(--text); background:transparent }
+.chip-tag{ border-color: rgba(0,0,0,.12); opacity:.9 }
+[data-theme="light"] .chip{ border-color: rgba(0,0,0,.18) }
+.meal .desc{ margin-top:4px }
 
 /* Calendar enhancements */
 .day{ transition: background .2s ease, border-color .2s ease }
@@ -117,3 +135,59 @@ input[type="checkbox"]{ accent-color: var(--accent) }
 .cal-grid > .day:nth-child(7n) .d{ color:#80d8ff }
 .badge{ animation: badgePop .8s ease both }
 @keyframes badgePop{ 0%{ transform:scale(.6); opacity:.2 } 60%{ transform:scale(1.15); opacity:1 } 100%{ transform:scale(1) } }
+
+/* --- Theme: Light/Dark --- */
+:root{
+  color-scheme: dark light;
+}
+[data-theme="light"]{
+  --bg:#fafafa;
+  --card:#ffffff;
+  --text:#0e0f12;
+  --muted:#5a5d66;
+  --accent:#d3b190; /* brighter beige */
+  --accent2:#a8805e; /* warm brown slightly vivid */
+  --ok:#2e7d32;
+}
+[data-theme="light"] body{
+  background: radial-gradient(1000px 500px at 80% -10%, rgba(211,177,144,.30), transparent),
+              radial-gradient(900px 480px at -10% 100%, rgba(168,128,94,.20), transparent),
+              var(--bg);
+}
+[data-theme="light"] .card{
+  background:linear-gradient(180deg, rgba(0,0,0,0.02), rgba(0,0,0,0.01));
+  border-color: rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,.08);
+}
+[data-theme="light"] .btn{ background: linear-gradient(135deg, var(--accent), var(--accent2)) }
+[data-theme="light"] .btn.ghost, [data-theme="light"] .btn.link{ border-color: rgba(0,0,0,.18); color: var(--text) }
+[data-theme="light"] .day{ background: rgba(0,0,0,.02); border-color: rgba(0,0,0,.08) }
+[data-theme="light"] .quote{ color:#111 }
+[data-theme="light"] .weight{ color:#111 }
+
+/* Goal progress */
+.goal{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:10px }
+.progress{ width:100%; height:10px; background:rgba(255,255,255,.12); border-radius:999px; overflow:hidden; border:1px solid rgba(255,255,255,.15) }
+.progress-bar{ height:100%; width:0%; background:linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .3s ease }
+[data-theme="light"] .progress{ background:rgba(0,0,0,.06); border-color: rgba(0,0,0,.08) }
+
+/* Chart area spacing */
+.chart-area{ margin-top:14px }
+
+/* Dinner tags */
+.tags{ display:flex; gap:8px; flex-wrap:wrap; margin:6px 0 10px }
+.tag-btn{ padding:6px 10px; border-radius:999px; border:1px solid rgba(0,0,0,.15); background:transparent; color:var(--text); cursor:pointer }
+.tag-btn.active{ background:linear-gradient(135deg, var(--accent), var(--accent2)); color:#fff; border-color:transparent }
+[data-theme="light"] .tag-btn{ border-color: rgba(0,0,0,.18) }
+
+/* Recipe details */
+.recipe-actions{ margin-top:8px; }
+.recipe-details{ margin-top:8px; padding:10px; border:1px solid rgba(0,0,0,.12); border-radius:10px; background:rgba(0,0,0,.03) }
+[data-theme="light"] .recipe-details{ border-color: rgba(0,0,0,.08) }
+
+/* --- Focus visibility / A11y --- */
+:focus-visible{ outline: 2px solid var(--accent2); outline-offset:2px; border-radius: 8px }
+button:focus-visible, a:focus-visible, input:focus-visible{ box-shadow: 0 0 0 3px rgba(108,99,255,.3) }
+
+/* Header actions layout */
+.site-header .actions{ margin-top:10px }
